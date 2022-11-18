@@ -58,6 +58,7 @@ function resetCanvas() {
 function saveImage() {
   const newImg = canvas.toDataURL("image/png");
   showImage.src = newImg;
+  localStorage.setItem("img", newImg);
 }
 
 // --- EVENT LISTENER --- //
