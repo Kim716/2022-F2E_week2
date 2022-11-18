@@ -2,6 +2,7 @@
 
 // --- DOM nodes --- //
 const canvas = document.querySelector("#signature-canvas");
+const showImage = document.querySelector(".show-img");
 const clearBtn = document.querySelector(".clear-btn");
 const saveBtn = document.querySelector(".save-btn");
 
@@ -53,6 +54,12 @@ function resetCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+// FUNCTION 儲存圖片
+function saveImage() {
+  const newImg = canvas.toDataURL("image/png");
+  showImage.src = newImg;
+}
+
 // --- EVENT LISTENER --- //
 // EVENT LISTENER 畫圖相關
 canvas.addEventListener("mousedown", startPosition);
@@ -60,5 +67,8 @@ canvas.addEventListener("mouseup", endPosition);
 canvas.addEventListener("mouseleave", endPosition);
 canvas.addEventListener("mousemove", draw);
 
-// 清空畫面
+// EVENT LISTENER 清空畫面
 clearBtn.addEventListener("click", resetCanvas);
+
+// EVENT LISTENER 儲存圖片
+saveBtn.addEventListener("click", saveImage);
