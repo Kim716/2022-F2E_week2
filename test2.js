@@ -9,6 +9,7 @@ const base64Prefix = "data:application/pdf;base64,";
 // const canvas = document.querySelector("#forPDF");
 // const ctx = canvas.getContext("2d");
 const selectPDF = document.querySelector(".selectPDF");
+const sign = document.querySelector(".sign");
 
 // --- FUNCTION --- //
 // FUNCTION render PDF
@@ -114,3 +115,23 @@ selectPDF.addEventListener("change", async (event) => {
 
   canvas.setBackgroundImage(pdfImage, canvas.renderAll.bind(canvas));
 });
+
+// EVENT LISTENER 點擊圖片可以擺放他
+sign.addEventListener("click", () => {
+  if (!sign.src) return;
+
+  fabric.Image.fromURL(sign.src, function (img) {
+    // 設定簽名出現的位置還有大小，後續可以調整
+    img.top = 400;
+    img.scaleX = 0.5;
+    img.scaleY = 0.5;
+    canvas.add(img);
+  });
+});
+
+// --- EXECUTE --- //
+// 載入頁面時，要呈現已經有的簽名
+if (localStorage.getItem("img")) {
+  console.log(localStorage.getItem("img"));
+  sign.src = localStorage.getItem("img");
+}
