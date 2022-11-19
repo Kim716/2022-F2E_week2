@@ -4,12 +4,14 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
   "https://mozilla.github.io/pdf.js/build/pdf.worker.js";
 
 const base64Prefix = "data:application/pdf;base64,";
+const pdf = new jsPDF();
 
 // --- DOM nodes --- //
 // const canvas = document.querySelector("#forPDF");
 // const ctx = canvas.getContext("2d");
 const selectPDF = document.querySelector(".selectPDF");
 const sign = document.querySelector(".sign");
+const downloadBtn = document.querySelector(".download");
 
 // --- FUNCTION --- //
 // FUNCTION render PDF
@@ -127,6 +129,19 @@ sign.addEventListener("click", () => {
     img.scaleY = 0.5;
     canvas.add(img);
   });
+});
+
+// EVENT LISTENER 點擊下載即可下載
+downloadBtn.addEventListener("click", () => {
+  // 將 canvas 存為圖片
+  const image = canvas.toDataURL("image/png");
+  // 設定圖片在 PDF 的位置及大小
+  const width = pdf.internal.pageSize.width;
+  const height = pdf.internal.pageSize.height;
+  pdf.addImage(image, "png", 0, 0, width, height);
+
+  //為檔案取名並下載
+  pdf.save("download.pdf");
 });
 
 // --- EXECUTE --- //
