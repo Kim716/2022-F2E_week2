@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign●●●｜準備文件</title>
+    <script
+      src="https://kit.fontawesome.com/dbaf598005.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./pdf.css" />
+  </head>
+  <body>
+    <div class="full-page-container">
+      <!-- 導覽列 -->
+      <div class="nav-bar">
+        <img src="./image/logo_Signooo 1.png" alt="logo" class="logo" />
+        <div class="nav-buttons">
+          <a href="#">服務介紹</a>
+          <a href="#">簽署文件</a>
+          <a href="#">註冊</a>
+          <a href="#">登入</a>
+        </div>
+      </div>
+      <!-- 簽署文件處 -->
+      <div class="pdf-page">
+        <div class="pdf-bar">
+          <span class="pdf-bar-title">OOO.pdf</span>
+          <input class="select-page" type="text" />
+          <span class="total-page">/ 5</span>
+          <div><i class="fa-solid fa-chevron-up"></i></div>
+          <div><i class="fa-solid fa-chevron-down"></i></div>
+          <input
+            id="uploadPDF"
+            type="file"
+            class="selectPDF"
+            accept="application/pdf"
+            style="display: none"
+          />
+          <button class="upload-again" onclick="uploadPDF.click()">
+            重選文件
+          </button>
+        </div>
+        <div class="pdf-container">
+          <!-- 左欄 -->
+          <div class="pdf-sidebar-left">
+            <div class="pdf-pages">
+              <!-- render -->
+              <div class="pdf-per-page">
+                <canvas
+                  width="120"
+                  height="170"
+                  style="border: 1px solid #000"
+                  data-page="1"
+                ></canvas>
+                <p>1</p>
+              </div>
+              <!-- render -->
+              <div class="pdf-per-page">
+                <canvas
+                  width="120"
+                  height="170"
+                  style="border: 1px solid #000"
+                  data-page="1"
+                ></canvas>
+                <p>1</p>
+              </div>
+              <!-- render -->
+              <div class="pdf-per-page">
+                <canvas
+                  width="120"
+                  height="170"
+                  style="border: 1px solid #000"
+                  data-page="1"
+                ></canvas>
+                <p>1</p>
+              </div>
+              <!-- render -->
+              <div class="pdf-per-page">
+                <canvas
+                  width="120"
+                  height="170"
+                  style="border: 1px solid #000"
+                  data-page="1"
+                ></canvas>
+                <p>1</p>
+              </div>
+            </div>
+            <div class="hide-sidebar">◀︎</div>
+            <div class="show-sidebar hide">▶︎</div>
+          </div>
+          <!-- 中間PDF -->
+          <div class="show-pdf">
+            <!-- render   -->
+            <div class="forPDF">
+              <canvas class="forPDF-1" style="border: 1px solid #000"></canvas>
+            </div>
+            <!-- render   -->
+            <div class="forPDF">
+              <canvas class="forPDF-1" style="border: 1px solid #000"></canvas>
+            </div>
+            <!-- render   -->
+            <div class="forPDF">
+              <canvas class="forPDF-1" style="border: 1px solid #000"></canvas>
+            </div>
+            <!-- render   -->
+            <div class="forPDF">
+              <canvas class="forPDF-1" style="border: 1px solid #000"></canvas>
+            </div>
+            <!-- render   -->
+            <div class="forPDF">
+              <canvas class="forPDF-1" style="border: 1px solid #000"></canvas>
+            </div>
+          </div>
+          <!-- 右欄 -->
+          <div class="pdf-sidebar-right">
+            <div class="sidebar-right-title">簽署文件</div>
+            <h3>您的簽名</h3>
+            <h4></h4>
+            <div class="signature signature-done">
+              <div>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
+              <img class="sign" />
+              <i class="fa-solid fa-pencil"></i>
+            </div>
+            <button class="signature">＋ 新增簽名檔</button>
+            <h3>日期</h3>
+            <button class="add-thing-btn">
+              <div>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
+              <p>2022/11/12</p>
+            </button>
+            <h3>文字</h3>
+            <button class="add-thing-btn">
+              <div>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
+              <p>增加文字方塊</p>
+            </button>
+            <button class="draft">儲存文件於草稿</button>
+            <button class="confirm-to-save">確認簽署此文件</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

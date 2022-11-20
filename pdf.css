@@ -1,0 +1,239 @@
+:root {
+  --check: 3px solid tomato;
+  --check2: 3px solid blue;
+  --check3: 3px solid yellow;
+}
+
+.pdf-page {
+  /* position: relative; */
+  margin-top: 5rem;
+  /* border: 3px solid tomato; */
+}
+
+/* pdf-bar */
+.pdf-bar {
+  /* border: 3px solid blue; */
+  position: absolute;
+  z-index: 5;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem;
+  width: 100%;
+  height: 3rem;
+
+  background: #2a2a2a;
+  box-shadow: 0 1px 4px 0 #666;
+}
+
+.pdf-bar .pdf-bar-title {
+  width: 15rem;
+  margin-right: 1rem;
+  background: #fff;
+  padding-left: 5px;
+  border-radius: 4px;
+}
+
+.select-page {
+  content: "1";
+  width: 5rem;
+  margin-right: 0.7rem;
+  text-align: center;
+}
+
+.total-page {
+  margin-right: 1rem;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.pdf-bar i {
+  margin-right: 0.7rem;
+  border-radius: 50%;
+  padding: 5px;
+  background: #fff;
+  font-size: 1.3rem;
+}
+
+button.upload-again {
+  margin-left: 1rem;
+  background: #fff;
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+.pdf-container {
+  /* border: 5px solid greenyellow; */
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  /* padding-top: 8rem; */
+  display: flex;
+  /* border: var(--check); */
+  /* overflow: hidden; */
+}
+
+/* 左欄 */
+.pdf-sidebar-left {
+  position: absolute;
+  top: 0;
+  /* border: var(--check); */
+  width: 20%;
+  height: 100vh;
+  padding-top: 8rem;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.pdf-pages {
+  /* border: var(--check2); */
+  flex-grow: 1;
+  overflow: scroll;
+  background: #2a2a2a;
+}
+
+.pdf-per-page {
+  /* border: var(--check3); */
+  margin-top: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+.hide-sidebar {
+  display: flex;
+  align-items: center;
+}
+
+/* 中間PDF */
+.show-pdf {
+  /* border: var(--check2); */
+  position: absolute;
+  top: 0;
+  left: 20%;
+  /* z-index: -1; */
+  height: 100vh;
+  width: 50%;
+  padding-top: 8rem;
+
+  text-align: center;
+
+  background: #e1eddf;
+  overflow: scroll;
+}
+
+.forPDF {
+  /* border: var(--check); */
+  margin-top: 15px;
+  /* margin: 3rem; */
+}
+
+/* 右欄 */
+.pdf-sidebar-right {
+  /* border: var(--check3); */
+  position: absolute;
+  z-index: 7;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 30%;
+  padding-top: 5rem;
+
+  background: #fff;
+  box-shadow: 2px 0 7px 0 #333;
+}
+
+.pdf-sidebar-right > * {
+  display: block;
+  margin-left: 1.5rem;
+}
+
+.sidebar-right-title {
+  background: #000;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 7px 0;
+  margin-left: 0;
+}
+
+.pdf-sidebar-right h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+}
+
+.signature {
+  background: #e1eddf;
+  width: 90%;
+  height: 70px;
+  margin-top: 1rem;
+  border-radius: 15px;
+}
+
+.signature-done {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.fa-pencil {
+  align-self: start;
+  padding-top: 10px;
+}
+
+.signature-done img {
+  border: none;
+  width: 200px;
+  height: 50px;
+  background: #fff;
+  border-radius: 6px;
+}
+
+.pdf-sidebar-right button {
+  background: #e1eddf;
+  width: 90%;
+  margin-top: 1rem;
+  border-radius: 6px;
+}
+
+.add-thing-btn {
+  display: flex;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  padding-left: 1rem;
+}
+
+.add-thing-btn p {
+  margin-left: 1rem;
+}
+
+.draft,
+.confirm-to-save {
+  font-size: 1.8rem;
+  padding: 8px 0;
+}
+
+.pdf-sidebar-right .draft {
+  color: #666;
+  margin-top: 5rem;
+}
+
+.pdf-sidebar-right .confirm-to-save {
+  background: #6c8268;
+  color: #fff;
+}
+
+/* 隱藏左欄位 */
+.show-pdf-grow {
+  left: 1%;
+  width: 69%;
+}
+
+.hide {
+  display: none;
+}
