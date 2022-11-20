@@ -102,9 +102,11 @@ button.upload-again {
   color: #fff;
 }
 
-.hide-sidebar {
+.hide-sidebar,
+.show-sidebar {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 /* 中間PDF */
@@ -131,11 +133,6 @@ button.upload-again {
   flex-direction: column;
   align-items: center;
   /* margin: 3rem; */
-}
-
-.forPDF canvas {
-  /* text-align: center; */
-  /* margin: auto; */
 }
 
 /* 右欄 */

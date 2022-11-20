@@ -8,9 +8,14 @@ const base64Prefix = "data:application/pdf;base64,";
 const pdfFile = localStorage.getItem("file");
 
 // --- DOM nodes --- //
+const hideBtn = document.querySelector(".hide-sidebar");
+const showBtn = document.querySelector(".show-sidebar");
+const leftSideBar = document.querySelector(".pdf-sidebar-left");
+const leftPages = document.querySelector(".pdf-pages");
+const centerPanel = document.querySelector(".show-pdf");
 
 // --- FUNCTIONS --- //
-// FUNCTION 生出 PDF 畫面
+// FN-1 生出 PDF 畫面
 async function renderPDF(pdfData) {
   // 刪除 base64 的前綴，並解碼
   const data = atob(pdfData.substring(base64Prefix.length));
@@ -38,7 +43,7 @@ async function renderPDF(pdfData) {
   return renderTask.promise.then(() => canvas);
 }
 
-// FUNCTION 讓 PDF 變成畫布的背景
+// FN-2 讓 PDF 變成畫布的背景
 async function pdfToImage(pdfData) {
   // 設定 PDF 轉成圖片時的比例
   const scale = 1 / window.devicePixelRatio;
@@ -66,6 +71,15 @@ async function pdfTurnCanvas(data) {
 }
 
 // --- EVENT LISTENER --- //
+// EL-1 隱藏/開啟左側欄
+leftSideBar.addEventListener("click", (e) => {
+  if (e.target.matches(".hide-sidebar") || e.target.matches(".show-sidebar")) {
+    hideBtn.classList.toggle("hide");
+    showBtn.classList.toggle("hide");
+    leftPages.classList.toggle("hide");
+    centerPanel.classList.toggle("show-pdf-grow");
+  }
+});
 
 // --- EXECUTE --- //
 pdfTurnCanvas(pdfFile);
