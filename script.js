@@ -31,7 +31,7 @@ closeBtn.addEventListener("click", (e) => {
 
 // EL-3 點擊 modal 外圍可以關掉
 outerModal.addEventListener("click", (e) => {
-  if (!e.target.matches(".modal")) {
+  if (e.target.matches(".modal-background")) {
     closeModal(startPageModal);
   }
 });
