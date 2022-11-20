@@ -107,10 +107,13 @@ const canvas = new fabric.Canvas("forPDF");
 // });
 
 // EVENT LISTENER 監聽檔案的傳入
+console.log(canvas);
 selectPDF.addEventListener("change", async (event) => {
+  // console.log(readBlob(event.target.files[0]));
   canvas.requestRenderAll();
   const pdfData = await renderPDF(event.target.files[0]);
   const pdfImage = await pdfToImage(pdfData);
+  console.log(pdfImage);
 
   canvas.setWidth(pdfImage.width / window.devicePixelRatio);
   canvas.setHeight(pdfImage.height / window.devicePixelRatio);
@@ -147,6 +150,5 @@ downloadBtn.addEventListener("click", () => {
 // --- EXECUTE --- //
 // 載入頁面時，要呈現已經有的簽名
 if (localStorage.getItem("img")) {
-  console.log(localStorage.getItem("img"));
   sign.src = localStorage.getItem("img");
 }

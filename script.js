@@ -1,4 +1,6 @@
 "use strict";
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  "https://mozilla.github.io/pdf.js/build/pdf.worker.js";
 const base64Prefix = "data:application/pdf;base64,";
 
 // --- DOM nodes --- //
@@ -30,16 +32,6 @@ function readBlob(blod) {
   });
 }
 
-// FN-4 儲存 PDF 到 local
-async function storePDFdata(pdfData) {
-  // 將檔案處理成 base64
-  pdfData = await readBlob(pdfData);
-
-  // 刪除 base64 的前綴，並解碼
-  const data = atob(pdfData.substring(base64Prefix.length));
-  localStorage.setItem("file", JSON.stringify(data));
-}
-
 // --- EVENT LISTENER --- //
 // EL-1
 startBtn.addEventListener("click", (e) => {
@@ -58,10 +50,10 @@ outerModal.addEventListener("click", (e) => {
   }
 });
 
-// EL-4 當 PDF 上傳完畢，將檔案存在local，並跳轉頁面
+// EL-4 當 PDF 上傳完畢，讓 PDF 轉檔、儲存、跳轉頁面
+const canvas1 = new fabric.Canvas("forPDF-1");
 uploadPDF.addEventListener("change", async (e) => {
-  if (e.target.files[0] === undefined) return;
-
-  await storePDFdata(e.target.files[0]);
+  const pdfFile = await readBlob(e.target.files[0]);
+  localStorage.setItem("file", pdfFile);
   window.location.assign("./pdf.html");
 });

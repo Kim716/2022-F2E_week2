@@ -127,7 +127,15 @@ button.upload-again {
 .forPDF {
   /* border: var(--check); */
   margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   /* margin: 3rem; */
+}
+
+.forPDF canvas {
+  /* text-align: center; */
+  /* margin: auto; */
 }
 
 /* 右欄 */
