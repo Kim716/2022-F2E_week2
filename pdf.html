@@ -108,7 +108,7 @@
                 <i class="fa-solid fa-ellipsis-vertical"></i>
                 <i class="fa-solid fa-ellipsis-vertical"></i>
               </div>
-              <img class="sign" />
+              <img class="sign show-img" />
               <i class="fa-solid fa-pencil"></i>
             </div>
             <button class="signature">＋ 新增簽名檔</button>
@@ -131,6 +131,34 @@
             <button class="draft">儲存文件於草稿</button>
             <button class="confirm-to-save">確認簽署此文件</button>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal-background modal-1">
+      <div class="modal">
+        <div class="close-btn-container">
+          <button class="close-btn">x</button>
+        </div>
+        <img src="./image/State=draw.png" alt="" class="process1-img" />
+        <button class="draw-signature">繪製新的簽名檔</button>
+        <p class="description">繪製新的簽名檔案。</p>
+        <button class="upload-signature">上傳現有簽名檔</button>
+        <p class="description">從你的裝置直接上傳簽名檔案。</p>
+      </div>
+    </div>
+
+    <!-- modal2 -->
+    <div class="modal-background modal-2 hide">
+      <div class="modal">
+        <div class="close-btn-container">
+          <button class="close-btn">x</button>
+        </div>
+        <canvas id="signature-canvas" width="500" height="300"></canvas>
+        <div class="btn-group-2">
+          <button class="clear-btn">Clear</button>
+          <button class="save-btn">Save</button>
         </div>
       </div>
     </div>

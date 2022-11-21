@@ -17,6 +17,9 @@ ctx.lineCap = "round";
 // FUNCTION 取得滑鼠或手指在canvas上的x,y位置
 function getPaintPosition(event) {
   const canvasSize = canvas.getBoundingClientRect();
+  console.log(event);
+  console.log(canvasSize);
+  console.log(event.clientX, event.clientY, canvasSize.x, canvasSize.y);
 
   return {
     x: event.clientX - canvasSize.x,
