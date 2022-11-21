@@ -11,12 +11,14 @@
     <div class="full-page-container">
       <!-- 導覽列 -->
       <div class="nav-bar">
-        <img src="./image/logo_Signooo 1.png" alt="logo" class="logo" />
+        <a href="#" class="logo-a"
+          ><img src="./image/logo_Signooo 1.png" alt="logo" class="logo"
+        /></a>
         <div class="nav-buttons">
-          <a href="#">服務介紹</a>
-          <a href="#">簽署文件</a>
-          <a href="#">註冊</a>
-          <a href="#">登入</a>
+          <a href="#" class="not-allowed">服務介紹</a>
+          <a class="toggle-step1-modal">簽署文件</a>
+          <a href="#" class="not-allowed">註冊</a>
+          <a href="#" class="not-allowed">登入</a>
         </div>
       </div>
       <!-- 起始畫面 -->
@@ -24,15 +26,15 @@
         <h1 class="title">隨時隨地都能簽，<br />SIGNooo幫你省下大筆時間！</h1>
         <img src="./image/State=default.png" alt="" class="process-img" />
         <p>只需三步驟，立即簽署您的文件！</p>
-        <a href="#" class="start-btn">立即簽署文件</a>
+        <a href="#" class="start-btn toggle-step1-modal">立即簽署文件</a>
       </div>
     </div>
 
     <!-- modal -->
-    <div class="modal-background hide">
+    <div class="modal-background toggle-step1-modal hide">
       <div class="modal">
         <div class="close-btn-container">
-          <button class="close-btn">x</button>
+          <button class="close-btn toggle-step1-modal">x</button>
         </div>
         <img src="./image/State=upload.png" alt="" class="process1-img" />
         <input
@@ -44,7 +46,7 @@
         />
         <button class="upload" onclick="uploadPDF.click()">上傳PDF檔案</button>
         <p class="description">從你的裝置直接上傳PDF檔案。</p>
-        <button class="takePhoto">拍照上傳文件</button>
+        <button class="takePhoto not-allowed">拍照上傳文件</button>
         <p class="description">使用裝置相機將實體文件拍下後上傳。</p>
       </div>
     </div>

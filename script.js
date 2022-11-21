@@ -4,6 +4,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 const base64Prefix = "data:application/pdf;base64,";
 
 // --- DOM nodes --- //
+const body = document.querySelector("body");
 const startBtn = document.querySelector(".start-btn");
 const startPageModal = document.querySelector(".modal-background");
 const closeBtn = document.querySelector(".close-btn");
@@ -11,17 +12,12 @@ const outerModal = document.querySelector(".modal-background");
 const uploadPDF = document.querySelector("#uploadPDF");
 
 // --- FUNCTION --- //
-// FN-1
-function showModal(modal) {
-  modal.classList.remove("hide");
+// FN1 開啟、隱藏 class
+function toggleHide(target) {
+  target.classList.toggle("hide");
 }
 
-// FN-2
-function closeModal(modal) {
-  modal.classList.add("hide");
-}
-
-// FN-3 轉檔
+// FN2 轉檔
 function readBlob(blod) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -33,24 +29,14 @@ function readBlob(blod) {
 }
 
 // --- EVENT LISTENER --- //
-// EL-1
-startBtn.addEventListener("click", (e) => {
-  showModal(startPageModal);
-});
-
-// EL-2
-closeBtn.addEventListener("click", (e) => {
-  closeModal(startPageModal);
-});
-
-// EL-3 點擊 modal 外圍可以關掉
-outerModal.addEventListener("click", (e) => {
-  if (e.target.matches(".modal-background")) {
-    closeModal(startPageModal);
+// EL-1 啟動、關閉 step1-modal
+body.addEventListener("click", (e) => {
+  if (e.target.matches(".toggle-step1-modal")) {
+    toggleHide(startPageModal);
   }
 });
 
-// EL-4 當 PDF 上傳完畢，讓 PDF 轉檔、儲存、跳轉頁面
+// EL-2 當 PDF 上傳完畢，讓 PDF 轉檔、儲存、跳轉頁面
 const canvas1 = new fabric.Canvas("forPDF-1");
 uploadPDF.addEventListener("change", async (e) => {
   const pdfFile = await readBlob(e.target.files[0]);

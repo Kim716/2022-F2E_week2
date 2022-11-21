@@ -14,14 +14,17 @@ const leftSideBar = document.querySelector(".pdf-sidebar-left");
 const leftPages = document.querySelector(".pdf-pages");
 const centerPanel = document.querySelector(".show-pdf");
 const modal1 = document.querySelector(".modal-1");
+const modal2 = document.querySelector(".modal-2");
+const modal3 = document.querySelector(".modal-3");
+const backToHomePageBtn = document.querySelector(".back-to-home-page");
 // DOM 簽名相關
 // const drawSignBtn = document.querySelector(".draw-signature");
 const showImage = document.querySelector(".show-img");
 const clearBtn = document.querySelector(".clear-btn");
 const saveBtn = document.querySelector(".save-btn");
-const modal2 = document.querySelector(".modal-2");
 const canvas1 = new fabric.Canvas("forPDF-1");
 const downloadBtn = document.querySelector(".download-btn");
+const confirmToSaveBtn = document.querySelector(".confirm-to-save");
 
 // 簽名的 canvas set
 const canvasSign = document.querySelector("#signature-canvas");
@@ -153,13 +156,18 @@ function downloadPDF() {
   pdf.save("download.pdf");
 }
 
+// FN5 開啟、隱藏 class
+function toggleHide(target) {
+  target.classList.toggle("hide");
+}
+
 // --- EVENT LISTENER --- //
 // EL-1 隱藏/開啟左側欄
 leftSideBar.addEventListener("click", (e) => {
   if (e.target.matches(".hide-sidebar") || e.target.matches(".show-sidebar")) {
-    hideBtn.classList.toggle("hide");
-    showBtn.classList.toggle("hide");
-    leftPages.classList.toggle("hide");
+    toggleHide(hideBtn);
+    toggleHide(showBtn);
+    toggleHide(leftPages);
     centerPanel.classList.toggle("show-pdf-grow");
   }
 });
@@ -167,8 +175,8 @@ leftSideBar.addEventListener("click", (e) => {
 // EL-2 啟動畫圖版
 modal1.addEventListener("click", (e) => {
   if (e.target.matches(".draw-signature")) {
-    modal1.classList.toggle("hide");
-    modal2.classList.toggle("hide");
+    toggleHide(modal1);
+    toggleHide(modal2);
   }
 });
 
@@ -184,7 +192,7 @@ clearBtn.addEventListener("click", resetCanvas);
 // EL-5 儲存圖片、並關閉繪圖
 saveBtn.addEventListener("click", () => {
   saveImage();
-  modal2.classList.add("hide");
+  toggleHide(modal2);
 });
 
 // EL-6 點擊圖片可以擺放他
@@ -195,8 +203,17 @@ showImage.addEventListener("click", (e) => {
   addSignatureOnPDF(signatureImg);
 });
 
-// EL-7 點擊下載
-downloadBtn.addEventListener("click", downloadPDF);
+// EL-7 點擊確認簽署此文件
+confirmToSaveBtn.addEventListener("click", () => {
+  toggleHide(modal3);
+});
+
+// EL-8 點擊下載
+downloadBtn.addEventListener("click", () => {
+  downloadPDF();
+  toggleHide(downloadBtn);
+  toggleHide(backToHomePageBtn);
+});
 
 // --- EXECUTE --- //
 pdfTurnCanvas(pdfFile);

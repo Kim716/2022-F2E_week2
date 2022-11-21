@@ -1,18 +1,9 @@
-:root {
-  --check: 3px solid tomato;
-  --check2: 3px solid blue;
-  --check3: 3px solid yellow;
-}
-
 .pdf-page {
-  /* position: relative; */
   margin-top: 5rem;
-  /* border: 3px solid tomato; */
 }
 
 /* pdf-bar */
 .pdf-bar {
-  /* border: 3px solid blue; */
   position: absolute;
   z-index: 5;
 
@@ -64,15 +55,11 @@ button.upload-again {
 }
 
 .pdf-container {
-  /* border: 5px solid greenyellow; */
   width: 100%;
   height: 100vh;
   position: absolute;
   top: 0;
-  /* padding-top: 8rem; */
   display: flex;
-  /* border: var(--check); */
-  /* overflow: hidden; */
 }
 
 /* 左欄 */
@@ -89,14 +76,12 @@ button.upload-again {
 }
 
 .pdf-pages {
-  /* border: var(--check2); */
   flex-grow: 1;
   overflow: scroll;
   background: #2a2a2a;
 }
 
 .pdf-per-page {
-  /* border: var(--check3); */
   margin-top: 15px;
   text-align: center;
   color: #fff;
@@ -111,11 +96,9 @@ button.upload-again {
 
 /* 中間PDF */
 .show-pdf {
-  /* border: var(--check2); */
   position: absolute;
   top: 0;
   left: 20%;
-  /* z-index: -1; */
   height: 100vh;
   width: 50%;
   padding-top: 8rem;
@@ -127,17 +110,14 @@ button.upload-again {
 }
 
 .forPDF {
-  /* border: var(--check); */
   margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin: 3rem; */
 }
 
 /* 右欄 */
 .pdf-sidebar-right {
-  /* border: var(--check3); */
   position: absolute;
   z-index: 7;
   top: 0;
@@ -246,6 +226,7 @@ button.upload-again {
   padding: 3px 10px;
   margin: 5px;
   border-radius: 5px;
+  color: #000;
 }
 
 .btn-group-2 button:hover {
@@ -262,6 +243,20 @@ button.upload-again {
   margin: 5rem 0 3rem;
   font-size: 2.5rem;
   color: #6c8268;
+}
+
+.btn-group-3 > * {
+  background: #6c8268;
+  padding: 1rem 4rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px 0 #888;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.btn-group-3 > *:hover {
+  background: #e1eddf;
+  color: #000;
 }
 
 /* 隱藏左欄位 */
