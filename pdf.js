@@ -20,6 +20,7 @@ const showImage = document.querySelector(".show-img");
 const clearBtn = document.querySelector(".clear-btn");
 const saveBtn = document.querySelector(".save-btn");
 const modal2 = document.querySelector(".modal-2");
+const canvas1 = new fabric.Canvas("forPDF-1");
 
 // 簽名的 canvas set
 const canvasSign = document.querySelector("#signature-canvas");
@@ -72,8 +73,6 @@ async function pdfToImage(pdfData) {
 }
 
 // FN1-3
-const canvas1 = new fabric.Canvas("forPDF-1");
-
 async function pdfTurnCanvas(data) {
   canvas1.requestRenderAll();
   const pdfData = await renderPDF(data);
@@ -130,6 +129,17 @@ function saveImage() {
   localStorage.setItem("img", newImg);
 }
 
+// FN3 放置簽名
+function addSignatureOnPDF(signatureImg) {
+  fabric.Image.fromURL(signatureImg, function (img) {
+    // 設定簽名出現的位置還有大小，後續可以調整
+    img.top = 400;
+    img.scaleX = 0.5;
+    img.scaleY = 0.5;
+    canvas1.add(img);
+  });
+}
+
 // --- EVENT LISTENER --- //
 // EL-1 隱藏/開啟左側欄
 leftSideBar.addEventListener("click", (e) => {
@@ -162,6 +172,14 @@ clearBtn.addEventListener("click", resetCanvas);
 saveBtn.addEventListener("click", () => {
   saveImage();
   modal2.classList.add("hide");
+});
+
+// EL-6 點擊圖片可以擺放他
+showImage.addEventListener("click", (e) => {
+  const signatureImg = e.target.src;
+  console.log(signatureImg);
+  if (!signatureImg) return;
+  addSignatureOnPDF(signatureImg);
 });
 
 // --- EXECUTE --- //
