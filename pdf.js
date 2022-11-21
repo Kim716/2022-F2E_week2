@@ -2,7 +2,7 @@
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   "https://mozilla.github.io/pdf.js/build/pdf.worker.js";
 const base64Prefix = "data:application/pdf;base64,";
-// const pdf = new jsPDF();
+const pdf = new jsPDF();
 
 // --- DATA --- //
 const pdfFile = localStorage.getItem("file");
@@ -21,6 +21,7 @@ const clearBtn = document.querySelector(".clear-btn");
 const saveBtn = document.querySelector(".save-btn");
 const modal2 = document.querySelector(".modal-2");
 const canvas1 = new fabric.Canvas("forPDF-1");
+const downloadBtn = document.querySelector(".download-btn");
 
 // 簽名的 canvas set
 const canvasSign = document.querySelector("#signature-canvas");
@@ -140,6 +141,18 @@ function addSignatureOnPDF(signatureImg) {
   });
 }
 
+// FN4 下載 PDF
+function downloadPDF() {
+  const image = canvas1.toDataURL("image/png");
+  // 設定圖片在 PDF 的位置及大小
+  const width = pdf.internal.pageSize.width;
+  const height = pdf.internal.pageSize.height;
+  pdf.addImage(image, "png", 0, 0, width, height);
+
+  //為檔案取名並下載
+  pdf.save("download.pdf");
+}
+
 // --- EVENT LISTENER --- //
 // EL-1 隱藏/開啟左側欄
 leftSideBar.addEventListener("click", (e) => {
@@ -181,6 +194,9 @@ showImage.addEventListener("click", (e) => {
   if (!signatureImg) return;
   addSignatureOnPDF(signatureImg);
 });
+
+// EL-7 點擊下載
+downloadBtn.addEventListener("click", downloadPDF);
 
 // --- EXECUTE --- //
 pdfTurnCanvas(pdfFile);
