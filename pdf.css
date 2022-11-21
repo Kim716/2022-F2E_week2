@@ -268,3 +268,9 @@ button.upload-again {
 .hide {
   display: none;
 }
+
+/* 尚未開發的功能 */
+.nav-buttons .not-allowed,
+.not-allowed {
+  cursor: not-allowed;
+}

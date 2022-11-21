@@ -20,20 +20,20 @@
           ><img src="./image/logo_Signooo 1.png" alt="logo" class="logo"
         /></a>
         <div class="nav-buttons">
-          <a href="#">服務介紹</a>
-          <a href="#">簽署文件</a>
-          <a href="#">註冊</a>
-          <a href="#">登入</a>
+          <a href="#" class="not-allowed">服務介紹</a>
+          <a href="#" class="not-allowed">簽署文件</a>
+          <a href="#" class="not-allowed">註冊</a>
+          <a href="#" class="not-allowed">登入</a>
         </div>
       </div>
       <!-- 簽署文件處 -->
       <div class="pdf-page">
         <div class="pdf-bar">
           <span class="pdf-bar-title">sample.pdf</span>
-          <input class="select-page" type="text" />
+          <input class="select-page not-allowed" type="text" />
           <span class="total-page">/ 1</span>
-          <div><i class="fa-solid fa-chevron-up"></i></div>
-          <div><i class="fa-solid fa-chevron-down"></i></div>
+          <div><i class="fa-solid fa-chevron-up not-allowed"></i></div>
+          <div><i class="fa-solid fa-chevron-down not-allowed"></i></div>
           <input
             id="uploadPDF"
             type="file"
@@ -41,7 +41,7 @@
             accept="application/pdf"
             style="display: none"
           />
-          <button class="upload-again" onclick="uploadPDF.click()">
+          <button class="upload-again not-allowed" onclick="uploadPDF.click()">
             重選文件
           </button>
         </div>
@@ -111,11 +111,11 @@
                 <i class="fa-solid fa-ellipsis-vertical"></i>
               </div>
               <img class="sign show-img" />
-              <i class="fa-solid fa-pencil"></i>
+              <i class="fa-solid fa-pencil not-allowed"></i>
             </div>
-            <button class="signature">＋ 新增簽名檔</button>
+            <button class="signature not-allowed">＋ 新增簽名檔</button>
             <h3>日期</h3>
-            <button class="add-thing-btn">
+            <button class="add-thing-btn not-allowed">
               <div>
                 <i class="fa-solid fa-ellipsis-vertical"></i>
                 <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -123,14 +123,14 @@
               <p>2022/11/12</p>
             </button>
             <h3>文字</h3>
-            <button class="add-thing-btn">
+            <button class="add-thing-btn not-allowed">
               <div>
                 <i class="fa-solid fa-ellipsis-vertical"></i>
                 <i class="fa-solid fa-ellipsis-vertical"></i>
               </div>
               <p>增加文字方塊</p>
             </button>
-            <button class="draft">儲存文件於草稿</button>
+            <button class="draft not-allowed">儲存文件於草稿</button>
             <button class="confirm-to-save">確認簽署此文件</button>
           </div>
         </div>
@@ -138,24 +138,24 @@
     </div>
 
     <!-- modal -->
-    <div class="modal-background modal-1">
+    <div class="modal-background modal-1 toggle-modal-1">
       <div class="modal">
         <div class="close-btn-container">
-          <button class="close-btn">x</button>
+          <button class="close-btn toggle-modal-1 not-allowed">x</button>
         </div>
         <img src="./image/State=draw.png" alt="" class="process1-img" />
         <button class="draw-signature">繪製新的簽名檔</button>
         <p class="description">繪製新的簽名檔案。</p>
-        <button class="upload-signature">上傳現有簽名檔</button>
+        <button class="upload-signature not-allowed">上傳現有簽名檔</button>
         <p class="description">從你的裝置直接上傳簽名檔案。</p>
       </div>
     </div>
 
     <!-- modal2 -->
-    <div class="modal-background modal-2 hide">
+    <div class="modal-background modal-2 toggle-modal-2 hide">
       <div class="modal">
         <div class="close-btn-container">
-          <button class="close-btn">x</button>
+          <button class="close-btn toggle-modal-2 not-allowed">x</button>
         </div>
         <canvas id="signature-canvas" width="500" height="300"></canvas>
         <div class="btn-group-2">
@@ -166,10 +166,10 @@
     </div>
 
     <!-- modal3 -->
-    <div class="modal-background modal-3 hide">
+    <div class="modal-background modal-3 toggle-modal-3 hide">
       <div class="modal">
         <div class="close-btn-container">
-          <button class="close-btn">x</button>
+          <button class="close-btn toggle-modal-3">x</button>
         </div>
         <img src="./image/logo_Signooo 1.png" alt="logo" />
         <p>太棒了！你已成功完成簽署🎉</p>

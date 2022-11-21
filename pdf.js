@@ -8,6 +8,7 @@ const pdf = new jsPDF();
 const pdfFile = localStorage.getItem("file");
 
 // --- DOM nodes --- //
+const body = document.querySelector("body");
 const hideBtn = document.querySelector(".hide-sidebar");
 const showBtn = document.querySelector(".show-sidebar");
 const leftSideBar = document.querySelector(".pdf-sidebar-left");
@@ -162,6 +163,20 @@ function toggleHide(target) {
 }
 
 // --- EVENT LISTENER --- //
+// 開啟、關閉modal
+body.addEventListener("click", (e) => {
+  // TODO 現階段不開放中途跳出
+  // if (e.target.matches(".toggle-modal-1")) {
+  //   toggleHide(modal1);
+  // } else if (e.target.matches(".toggle-modal-2")) {
+  //   toggleHide(modal2);
+  // } else
+
+  if (e.target.matches(".toggle-modal-3")) {
+    toggleHide(modal3);
+  }
+});
+
 // EL-1 隱藏/開啟左側欄
 leftSideBar.addEventListener("click", (e) => {
   if (e.target.matches(".hide-sidebar") || e.target.matches(".show-sidebar")) {
