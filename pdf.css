@@ -233,6 +233,7 @@ button.upload-again {
   color: #fff;
 }
 
+/* modal2 */
 .modal-2 canvas {
   width: 500px;
   height: 300px;
@@ -250,6 +251,17 @@ button.upload-again {
 .btn-group-2 button:hover {
   background: #6c8268;
   color: #fff;
+}
+
+/* modal3 */
+.modal-3 img {
+  width: 8rem;
+}
+
+.modal-3 p {
+  margin: 5rem 0 3rem;
+  font-size: 2.5rem;
+  color: #6c8268;
 }
 
 /* 隱藏左欄位 */
